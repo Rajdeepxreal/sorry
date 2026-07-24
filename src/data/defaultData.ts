@@ -3,18 +3,16 @@ import { AppCustomization, PolaroidPhoto } from '../types';
 export const INITIAL_PHOTOS: PolaroidPhoto[] = [
   {
     id: '1',
-    url: 'https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80',
+    url: './Image1.jpg',
     caption: 'Your breathtaking smile that brightens my whole world, Bornaa ✨',
-    date: 'Golden Hour Walk',
-    location: 'Our Favorite Spot',
+    
     rotation: -3
   },
   {
     id: '2',
-    url: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80',
+    url: './Image2.jpg',
     caption: 'The way your eyes twinkle when you laugh 💕',
-    date: 'Cozy Afternoon',
-    location: 'Little Cafe',
+  
     rotation: 2
   },
   {
