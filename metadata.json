@@ -1,0 +1,6 @@
+{
+  "name": "Sincere Apology & Love Memory Book for Bornaa",
+  "description": "A phone-optimized interactive romantic apology app for Bornaa featuring a 3D blooming rose bouquet canvas, 2D ambient falling rose petal and sparkle animations, an unsealable love letter, photo memory gallery, and playful forgiveness question.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
