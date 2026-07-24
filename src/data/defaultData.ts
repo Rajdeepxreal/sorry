@@ -31,7 +31,7 @@ export const INITIAL_PHOTOS: PolaroidPhoto[] = [
   },
   {
     id: '5',
-    url: './Image7.jpg',
+    url: './IMG_1236.jpeg',
     caption: 'Your gentle heart, kind soul, and infectious joy 💖',
    
     rotation: -3
