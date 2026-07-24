@@ -11,40 +11,36 @@ export const INITIAL_PHOTOS: PolaroidPhoto[] = [
   {
     id: '2',
     url: './Image2.jpg',
-    caption: 'The way your eyes twinkle when you laugh 💕',
+    caption: 'The way your eyes twinkle when you smilee... 💕',
   
     rotation: 2
   },
   {
     id: '3',
-    url: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=800&q=80',
-    caption: 'Holding your soft hand in mine is my favorite feeling in the universe 🌅',
-    date: 'Weekend Getaway',
-    location: 'Sunset Viewpoint',
+    url: './Image3.jpg',
+    caption: 'Holding your soft hand in mine is my favorite feeling in the universe',
+    
     rotation: -2
   },
   {
     id: '4',
-    url: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80',
+    url: './Image4.jpeg',
     caption: 'Every single laugh with you is a memory I treasure forever 🌸',
-    date: 'Movie & Coffee Night',
-    location: 'Home',
+    
     rotation: 4
   },
   {
     id: '5',
-    url: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80',
+    url: './Image6.jpeg',
     caption: 'Your gentle heart, kind soul, and infectious joy 💖',
-    date: 'Stargazing Night',
-    location: 'Under the Stars',
+   
     rotation: -3
   },
   {
     id: '6',
-    url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80',
+    url: './Image5.jpg',
     caption: 'Forever grateful for every single moment with you, my sweet Bornaa 🌹',
-    date: 'Autumn Afternoon',
-    location: 'Park Stroll',
+  
     rotation: 3
   }
 ];
