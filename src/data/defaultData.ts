@@ -31,7 +31,7 @@ export const INITIAL_PHOTOS: PolaroidPhoto[] = [
   },
   {
     id: '5',
-    url: './Image6.jpeg',
+    url: './Image7.jpg',
     caption: 'Your gentle heart, kind soul, and infectious joy 💖',
    
     rotation: -3
@@ -47,17 +47,17 @@ export const INITIAL_PHOTOS: PolaroidPhoto[] = [
 
 export const DEFAULT_CUSTOMIZATION: AppCustomization = {
   recipientName: 'Bornaa',
-  senderName: 'Raj',
-  heroSubtitle: 'I made this romantic space just for you, Bornaa, to tell you how deeply and sincerely sorry I am.',
-  apologyLetter: `Dearest Bornaa,
+  senderName: 'Rajdeep',
+  heroSubtitle: 'I made this romantic space just for you, Bornaa, to tell you how deeply and sincerely sorry I am for all my mistakes..',
+  apologyLetter: `Dearest Bornaaaaa,
 
-I am writing this from the very bottom of my heart because I want you to know how deeply, truly sorry I am for my mistake. You mean absolute world to me, Bornaa, and knowing that I hurt you breaks my heart more than words could ever express.
+I am writing this from the very bottom of my heart because I want you to know how deeply, truly sorry I am for my mistake. You mean absolute world to me, Bornaa, and knowing that I hurt you breaks my heart more than words could ever express.I’ve been feeling heavy about how things ended up between us, Bornaa. I am truly sorry for the ways I hurt you, and I mean that. It’s just been tough because I felt hurt by things on your end too, and it’s left us both in a bad place.I care about you, and I don't want us to hold resentment toward each other. When you're ready..., I'd really like for us to talk things through openly so we can both feel heard.
 
-I cherish every single smile we've shared, every quiet moment, and every beautiful memory we've built together. You bring so much light, warmth, and magic into my life every single day. I know I fell short, but I promise to listen better, cherish you deeper, and love you with all my heart.
+I cherish every single smile we've shared, every quiet moment, and every beautiful memory we've built together. We both are not perfect but we are perfect for each other...I know I fell short, but I promise to listen better, cherish you deeper, and love you with all my heart.
 
-Thank you for your patience and your soft, kind soul. You are my safe haven, my best friend, and my whole universe.
+Thank you for your patience and your soft, kind soul... You are my safe haven, my best friend, and my whole universe....I LOVE YOU 3000. I LOVE YOU TO THE MOON AND BACK. I LOVE YOU INFINITE. I LOVE YOU MORE.
 
-Please take all the time you need, Bornaa. I will always be right here, loving you with endless devotion.
+Please take all the time you need, Bornaa... I will always be right here, loving you with endless devotion...
 
 With all my love and infinite romance,
 Yours always & forever
