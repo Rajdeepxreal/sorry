@@ -20,8 +20,10 @@ export const ForgivenessQuestionSection: React.FC<ForgivenessQuestionSectionProp
 
   // "No" Button Evasive Position state
   const [noButtonPos, setNoButtonPos] = useState<{ x: number; y: number } | null>(null);
+  const [startPos, setStartPos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const [evasionCount, setEvasionCount] = useState(0);
   const noButtonContainerRef = useRef<HTMLDivElement>(null);
+  const inlineNoButtonRef = useRef<HTMLButtonElement>(null);
 
   const playfulMessages = [
     "Nice try! 😜",
@@ -34,15 +36,35 @@ export const ForgivenessQuestionSection: React.FC<ForgivenessQuestionSectionProp
     "Wrong button! 😘",
   ];
 
-  // Evasive "No" Button movement trigger
-  const handleMoveNoButton = () => {
+  const handleMoveNoButton = (e?: React.SyntheticEvent) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
     const btnWidth = 160;
     const btnHeight = 44;
-    const maxX = Math.max(20, window.innerWidth - btnWidth - 20);
-    const maxY = Math.max(20, window.innerHeight - btnHeight - 20);
 
-    const newX = Math.floor(Math.random() * maxX) + 10;
-    const newY = Math.floor(Math.random() * maxY) + 10;
+    const minX = 16;
+    const maxX = Math.max(minX + 20, window.innerWidth - btnWidth - 16);
+
+    const minY = 80; // Stay safely below mobile top browser bar/header
+    const maxY = Math.max(minY + 20, window.innerHeight - btnHeight - 110); // Stay safely above mobile bottom widgets
+
+    let newX = Math.floor(Math.random() * (maxX - minX)) + minX;
+    let newY = Math.floor(Math.random() * (maxY - minY)) + minY;
+
+    if (noButtonPos) {
+      let attempts = 0;
+      while (Math.hypot(newX - noButtonPos.x, newY - noButtonPos.y) < 100 && attempts < 10) {
+        newX = Math.floor(Math.random() * (maxX - minX)) + minX;
+        newY = Math.floor(Math.random() * (maxY - minY)) + minY;
+        attempts++;
+      }
+    } else if (inlineNoButtonRef.current) {
+      const rect = inlineNoButtonRef.current.getBoundingClientRect();
+      setStartPos({ x: rect.left, y: rect.top });
+    }
 
     setNoButtonPos({ x: newX, y: newY });
     setEvasionCount((prev) => prev + 1);
@@ -148,24 +170,28 @@ export const ForgivenessQuestionSection: React.FC<ForgivenessQuestionSectionProp
               {/* EVASIVE "NO" BUTTON */}
               {noButtonPos === null ? (
                 /* Initial Inline Position */
-                <motion.button
-                  onMouseEnter={handleMoveNoButton}
-                  onTouchStart={handleMoveNoButton}
-                  onClick={handleMoveNoButton}
-                  className="px-8 py-3.5 rounded-full bg-slate-200/90 hover:bg-slate-300 text-slate-600 font-sans font-bold text-xs uppercase tracking-wider shadow-md transition-all cursor-pointer border border-slate-300"
+                <button
+                  ref={inlineNoButtonRef}
+                  onMouseEnter={(e) => handleMoveNoButton(e)}
+                  onTouchStart={(e) => handleMoveNoButton(e)}
+                  onClick={(e) => handleMoveNoButton(e)}
+                  onPointerDown={(e) => handleMoveNoButton(e)}
+                  className="px-8 py-3.5 rounded-full bg-slate-200/90 hover:bg-slate-300 text-slate-600 font-sans font-bold text-xs uppercase tracking-wider shadow-md transition-all cursor-pointer border border-slate-300 touch-none select-none"
                 >
                   No 😢
-                </motion.button>
+                </button>
               ) : (
-                /* Random Evasive Bouncing Position around Screen */
+                /* Random Evasive Position smoothly animating around visible screen */
                 <motion.button
+                  initial={{ x: startPos.x, y: startPos.y }}
                   animate={{ x: noButtonPos.x, y: noButtonPos.y }}
-                  transition={{ type: 'spring', stiffness: 350, damping: 25 }}
-                  onMouseEnter={handleMoveNoButton}
-                  onTouchStart={handleMoveNoButton}
-                  onClick={handleMoveNoButton}
+                  transition={{ type: 'spring', stiffness: 300, damping: 22 }}
+                  onMouseEnter={(e) => handleMoveNoButton(e)}
+                  onTouchStart={(e) => handleMoveNoButton(e)}
+                  onClick={(e) => handleMoveNoButton(e)}
+                  onPointerDown={(e) => handleMoveNoButton(e)}
                   style={{ position: 'fixed', top: 0, left: 0, zIndex: 50 }}
-                  className="px-6 py-3 rounded-full bg-[#FCE4EC] text-[#D81B60] font-sans font-bold text-xs uppercase tracking-wider shadow-xl ring-2 ring-[#D81B60] flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
+                  className="px-5 py-3 rounded-full bg-[#FCE4EC] text-[#D81B60] font-sans font-bold text-xs uppercase tracking-wider shadow-xl ring-2 ring-[#D81B60] flex items-center gap-1.5 cursor-pointer whitespace-nowrap touch-none select-none"
                 >
                   <span>{playfulMessages[evasionCount % playfulMessages.length]}</span>
                 </motion.button>
